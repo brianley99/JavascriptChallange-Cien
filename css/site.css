@@ -1,12 +1,27 @@
 :root {
-    --primary-color: #1d5888;
-    --secondary-color: #ff993b;
-    --dark-color: #292929;
-    --white-color: #dff3e4;
+    --dark-color: #263e4e;
+    --light-color: #445e67;
+    --primary-color: #ab5522;
+    --secondary-color: #74745b;
+    --third-color: #be8343;
+}
+
+#cien-logo {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+h1 {
+    color: var(--third-color);
 }
 
 body {
-    color: var(--dark-color);
+    background-color: var(--light-color);
+    color: whitesmoke;
 }
 
 nav {
@@ -26,31 +41,22 @@ footer .social>a {
 
 footer .social>a:hover {
     opacity: .9;
-    color: var(--secondary-color);
-}
-
-h1,h2,h3,h4,h5,h6 {
-    color: var(--primary-color);
+    color: var(--third-color);
 }
 
 .logo {
     width: 2rem;
 }
 
-.bsicon {
-    color: #8c13fd;
+.icon {
+    color: var(--secondary-color);
+    opacity: .75;
 }
 
-.jsicon {
-    color: #f7df1e;
-}
-
-.html5icon {
-    color: #f16529;
-}
-
-.css3icon {
-    color: #369cd6;
+.btn-outline-dark {
+    color: whitesmoke;
+    background-color: var(--third-color);
+    border-color: var(--dark-color);
 }
 
 .checklist>li i {
