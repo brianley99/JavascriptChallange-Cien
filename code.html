@@ -65,16 +65,89 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert('Hello World!');
-                        }
+//get the values from the page
+//starts or controller function
+
+function getValues() {
+
+    //get values from page
+    let startValue = document.getElementById("startValue").value;
+    let endValue = document.getElementById("endValue").value;
+
+    //We need to validate our inputs
+    //parse into integers
+    startValue = parseInt(startValue);
+    endValue = parseInt(endValue);
+
+
+    if (Number.isInteger(startValue) && Number.isInteger(endValue)) {
+
+        //call generateNumbers
+        let numbers = generateNumbers(startValue, endValue);
+
+        //call displayNumbers
+        displayNumbers(numbers);
+
+    } else {
+        alert('You must enter integers');
+    }
+}
+
+//generate numbers from strartValue to endValue
+//logic function
+function generateNumbers(sValue, eValue) {
+
+    let numbers = [];
+
+    //we want to get all numbers from start to end
+    for (let index = sValue; index <= eValue; index++) {
+
+        //this will execute in a loop until index = eValue
+        numbers.push(index);
+
+    }
+
+    return numbers;
+}
+
+//display the numbers and mark the even bold
+//display or view functions
+
+function displayNumbers(numbers) {
+
+    let templateRows = "";
+
+    for (let index = 0; index < numbers.length; index++) {
+
+        let className = "even";
+        let number = numbers[index];
+
+        if (number % 2 === 0) {
+            className = 'even';
+        } else {
+            className = 'odd';
+        }
+
+        //modefied for prisim
+        templateRows += `&lt;tr>&lt;td class="${className}" >${number}&lt;/td>&lt;/tr>
+    }
+
+    document.getElementById('results').innerHTML = templateRows;
+
+}
                     </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is stucured in one Function</p>
-                    <h5>Hello World!</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World!"</p>
+                    <h5>Code Explination</h5>
+                    <p> The code is structured with a high-order function "getValues()" being called on when the user clicks on the "Display Cien" button.</p>
+                        
+                    <p>First, getValues() will retrieve the data from The Document Object Model (DOM) and assign it to a variable, next getValues() will confirm the data can be converted into an integer.</p>
+                        
+                    <p>Once the data is valitdated and converted into an integer, it will pass along the integers to the function generateNumbers() saving the result into the variable "numbers".</p>
+                        
+                    <p>Next, generateNumbers() creates a array with all the integers between the starting number and ending number of the user input.</p> 
+                        
+                    <p>Last, the displayNumbers() function is called with the array "Numbers" as its argument, then displayNumbers() will add the data into the DOM as an HTML table. Displaying even numbers with a bold font weight and odd numbers with regular font weight.</p>
                 </div>
             </div>
         </div>
